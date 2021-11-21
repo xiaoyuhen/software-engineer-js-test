@@ -122,7 +122,6 @@ const AppView = () => {
         canvas: {
           photo: {id, x, y, width, height},
         },
-        canvas,
       } = data
 
       if (!store[id]) {
@@ -133,6 +132,7 @@ const AppView = () => {
       img.src = store[id]
 
       img.onload = function () {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
         ctx.drawImage(img, x, y, width, height)
         ctx.restore()
       }
